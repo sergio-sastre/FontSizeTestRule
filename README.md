@@ -13,7 +13,7 @@ You can read more about it in my series on [snapshot testing](https://sergiosast
 ## Integration
 To integrate FontSizeTestRule into your project:
 
-Add jitpack to your root build.gradle file:
+Add jitpack to your root `build.gradle` file:
 ```groovy
 allprojects {
     repositories {
@@ -21,7 +21,7 @@ allprojects {
     }
 }
 ```
-Add a dependency to build.gradle
+Add a dependency to `build.gradle`
 ```groovy
 dependencies {
     androidTestImplementation 'com.github.sergio-sastre:FontSizeTestRule:v1.0.1'
