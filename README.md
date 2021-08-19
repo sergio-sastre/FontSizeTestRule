@@ -10,4 +10,23 @@ This helps to write snapshot tests that can catch visual regresion bugs like thi
 
 You can read more about it in my series on [snapshot testing](https://sergiosastre.hashnode.dev/an-introduction-to-snapshot-testing-on-android-in-2021), featured in [AndroidWeekly #479](https://androidweekly.net/issues/issue-479) and [Software Testing Notes #20](https://softwaretestingnotes.substack.com/p/issue-20-software-testing-notes)
 
-Code samples coming very soon...
+## Integration
+To integrate FontSizeTestRule into your project:
+
+Add jitpack to your root build.gradle file:
+```groovy
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+Add a dependency to build.gradle
+```groovy
+dependencies {
+    androidTestImplementation 'com.github.sergio-sastre:FontSizeTestRule:v1.0.1'
+}
+```
+
+## Code Samples
+Coming very soon...
