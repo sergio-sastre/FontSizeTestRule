@@ -29,4 +29,4 @@ dependencies {
 ```
 
 ## Code Samples
-You can find test samples of how to use FontScaleTestRule in the [Road to Effective Snapshot Testing](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting) repo, in the [DeleteDialogTest.kt](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/DeleteDialogTest.kt)
+You can find test samples of how to use FontScaleTestRule in the [Road to Effective Snapshot Testing](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting) repo, in the [DeleteDialogTest.kt](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/DeleteDialogTest.kt) file.
