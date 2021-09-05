@@ -34,7 +34,7 @@ dependencies {
 }
 ```
 
-or if you want to try the `FontSizeActivityScenario`:
+or if you want to try the `FontSizeActivityScenario` or use the `FontScaleTestRules` reliably on any API level:
 ```groovy
 dependencies {
     androidTestImplementation 'com.github.sergio-sastre:FontSizeTestRule:v1.1.0-SNAPSHOT'
