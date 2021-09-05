@@ -1,5 +1,5 @@
-# FontSizeRule
-A Junit4 TestRule to be used together with its `org.junit.runners.Parameterized`. It simulates changing the font size on a device/emulator, as it would be done by going to "Settings > display > Font size"
+# FontSizeActivityScenario and FontSizeTestRule
+An ActivityScenario and a Junit4 TestRule to be used together with its `org.junit.runners.Parameterized`. It simulates changing the font size on a device/emulator, as it would be done by going to "Settings > display > Font size"
 
 This helps to write snapshot tests that can catch visual regresion bugs like this one
 
@@ -32,5 +32,49 @@ dependencies {
 }
 ```
 
+or if you want to try the `FontSizeActivityScenario`:
+```groovy
+dependencies {
+    androidTestImplementation 'com.github.sergio-sastre:FontSizeTestRule:v1.1.0-SNAPSHOT'
+}
+```
+
+## What to keep in mind
+Prefer to use FontSizeActivityScenario over FontSizeTestRule. That is because Google deprecated
+`resources.updateConfiguration(resources.configuration, metrics)` on **API 25+**, and the test rule is based on that.
+Therefore, the current implementation of the testRule does not work on devices/emulators running 25+.
+In order to solve this, from 25+, the rule will execute the corresponding adb shell command to change the font size:
+<br/>
+`"settings put system font_scale ${fontScale.value}`
+</br>
+However, this has the drawback that the font size change does not happen immediately, making your tests run more slow.
+
+
+This is overcome by using `FontSizeActivityScenario.launchWith(fontScale)`, currently available on
+'com.github.sergio-sastre:FontSizeTestRule:v1.1.0-SNAPSHOT'. The only inconvenient is that you cannot snapshot-test your
+own activities with it. That is because in order to use `resources.updateConfiguration(resources.configuration, metrics)` replacement,
+we need to override `attachBaseContext()` in the activity.
+
+*Summary*
+| **FontSizeActivityScenario**    |      **FontSizeTestRule**     |
+|----------|:-------------:|
+|Any API | < API 25, otherwise more slow |
+| **Cannot** snapshot-test *Activities* | **Can** snapshot-test any View|
+
+## Usage
+To use `FontSizeActivityScenario` you need to add the following activities to your `debug/manifest`
+```xml
+<application
+        ...
+   <activity android:name="sergio.sastre.fontsize.SmallFontSizeActivity"></activity>
+   <activity android:name="sergio.sastre.fontsize.NormalFontSizeActivity"></activity>
+   <activity android:name="sergio.sastre.fontsize.LargeFontSizeActivity"></activity>
+   <activity android:name="sergio.sastre.fontsize.HugeFontSizeActivity"></activity>
+</application>
+```
+
 ## Code Samples
-You can find test samples of how to use FontScaleTestRule in the [Road to Effective Snapshot Testing](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting) repo, in the [DeleteDialogTest.kt](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/DeleteDialogTest.kt) file.
+You can find test samples of how to use them in the [Road to Effective Snapshot Testing](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting) repo
+1. FontActivityScenario -> TBD
+2. FontScaleTestRule -> in the [DeleteDialogTest.kt](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/DeleteDialogTest.kt) file.
+

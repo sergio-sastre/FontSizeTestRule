@@ -1,4 +1,4 @@
-package sergio.sastre.fontsize
+package sergio.sastre.fontsize.testrule
 
 import android.os.SystemClock
 
@@ -8,6 +8,7 @@ import org.junit.runner.Description
 import org.junit.runners.model.Statement
 
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
+import sergio.sastre.fontsize.FontScale
 
 class FontScaleTestRule(private val fontScaleSetting: FontScaleSetting, private val fontScale: FontScale) : TestWatcher(), TestRule {
     private var previousScale: Float = 0.toFloat()

@@ -1,6 +1,7 @@
-package sergio.sastre.fontsize
+package sergio.sastre.fontsize.testrule
 
 import androidx.test.platform.app.InstrumentationRegistry
+import sergio.sastre.fontsize.FontScale
 
 object FontScaleRules {
 
