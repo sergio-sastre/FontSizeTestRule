@@ -40,6 +40,30 @@ class ButtonTest(
                     FontScale.LARGE,
                     "LARGE",
                 ),
+                TestPayload(
+                    FontScale.SMALL,
+                    "SMALL2",
+                ),
+                TestPayload(
+                    FontScale.NORMAL,
+                    "NORMAL2",
+                ),
+                TestPayload(
+                    FontScale.LARGE,
+                    "LARGE2",
+                ),
+                TestPayload(
+                    FontScale.SMALL,
+                    "SMALL3",
+                ),
+                TestPayload(
+                    FontScale.NORMAL,
+                    "NORMAL3",
+                ),
+                TestPayload(
+                    FontScale.LARGE,
+                    "LARGE3",
+                ),
             )
     }
 
