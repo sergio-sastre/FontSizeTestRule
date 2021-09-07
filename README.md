@@ -11,7 +11,7 @@ This library has been mentioned in
 1. [Kotlin Weekly #266](https://newsletterest.com/message/69919/Kotlin-Weekly-266)
 
 You can read more about it in my series on [snapshot testing](https://sergiosastre.hashnode.dev/an-introduction-to-snapshot-testing-on-android-in-2021), featured in :
-1. [AndroidWeekly #479](https://androidweekly.net/issues/issue-479)
+1. [Android Weekly #479](https://androidweekly.net/issues/issue-479)
 2. [.kotlinTesting (September 2021)](https://kotlintesting.com/jvm-testing-newsletter-september-2021/)
 3. [Software Testing Notes #20](https://softwaretestingnotes.substack.com/p/issue-20-software-testing-notes)
 4. [Test Automation Weekly #8](https://www.testautomationweekly.com/post/issue-8)
@@ -62,6 +62,7 @@ we need to override `attachBaseContext()` in an activity.
 |----------|:-------------:|
 |Any API | < API 25, otherwise might be more slow |
 | **Cannot** snapshot-test *Activities* | **Can** snapshot-test any View|
+| Preferred over FontSizeTesRule | Recommended only to snapshot Activites |
 
 ## Usage
 If you are using `FontSizeActivityScenario` you need to add the following activities to your `debug/manifest`
@@ -75,7 +76,25 @@ If you are using `FontSizeActivityScenario` you need to add the following activi
 </application>
 ```
 
-You can find test samples of how to use `FontSizeActivityScenario` and `FontScaleTestRule` in the [Road to Effective Snapshot Testing](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting) repo:
+in order to test **Jetpack Compose** views, use `createEmptyComposeRule()` together with `FontSizeActivityScenario` as follows:
+```kotlin
+
+@get:Rule
+val composeTestRule = createEmptyComposeRule()
+
+@Test
+fun composeWithFontSizeTest() {
+    FontSizeActivityScenario.launchWith(testItem.fontScale).onActivity {
+            it.setContent {
+                myComposeView()
+            }
+        }
+
+    compareScreenshot(composeTestRule, name = testItem.testName)
+}
+```
+
+You can find some test samples of `FontSizeActivityScenario` and `FontScaleTestRule` in the [Road to Effective Snapshot Testing](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting) repo:
 1. FontActivityScenario -> in the [DeleteDialogTest.kt](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/DeleteDialogTest.kt) file.
 2. FontScaleTestRule -> also in the [DeleteDialogTest.kt](https://github.com/sergio-sastre/RoadToEffectiveSnapshotTesting/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/DeleteDialogTest.kt) file.
 
