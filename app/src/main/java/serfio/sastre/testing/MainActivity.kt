@@ -19,12 +19,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             Surface {
-                Box(
-                    modifier = Modifier.fillMaxWidth(),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    MyButton()
-                }
+                MyButton()
             }
         }
     }
@@ -32,7 +27,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyButton() {
-    Button(onClick = { }) {
-        Text(text = "Scaling text")
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center,
+    ) {
+        Button(onClick = { }) {
+            Text(text = "Scaling text")
+        }
     }
 }
