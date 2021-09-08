@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="sergio.sastre.testing">
+
+    <application>
+        <activity android:name="sergio.sastre.fontsize.SmallFontSizeActivity"></activity>
+        <activity android:name="sergio.sastre.fontsize.NormalFontSizeActivity"></activity>
+        <activity android:name="sergio.sastre.fontsize.LargeFontSizeActivity"></activity>
+        <activity android:name="sergio.sastre.fontsize.HugeFontSizeActivity"></activity>
+    </application>
+
+</manifest>

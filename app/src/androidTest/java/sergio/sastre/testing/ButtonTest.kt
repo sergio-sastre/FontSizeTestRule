@@ -1,6 +1,7 @@
 package sergio.sastre.testing
 
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.activity.compose.setContent
+import androidx.compose.ui.test.junit4.createEmptyComposeRule
 import com.karumi.shot.ScreenshotTest
 import org.junit.Rule
 import org.junit.Test
@@ -8,7 +9,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import serfio.sastre.testing.MyButton
 import sergio.sastre.fontsize.FontScale
-import sergio.sastre.fontsize.testrule.FontScaleRules
+import sergio.sastre.fontsize.FontSizeActivityScenario
 
 data class TestPayload(
     val fontScale: FontScale,
@@ -68,15 +69,14 @@ class ButtonTest(
     }
 
     @get:Rule
-    val fontSize = FontScaleRules.fontScaleTestRule(data.fontScale)
-
-    @get:Rule
-    val composeTestRule = createComposeRule()
+    val composeTestRule = createEmptyComposeRule()
 
     @Test
     fun buttonIsShownProperly() {
-        composeTestRule.setContent {
-            MyButton()
+        FontSizeActivityScenario.launchWith(data.fontScale).onActivity {
+            it.setContent {
+                MyButton()
+            }
         }
 
         compareScreenshot(composeTestRule, name = data.testName)
