@@ -1,9 +1,10 @@
-package sergio.sastre.fontsize
+package sergio.sastre.fontsize.activityscenario
 
 import android.content.Context
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import androidx.test.core.app.ActivityScenario
+import sergio.sastre.fontsize.FontScale
 
 object FontSizeActivityScenario {
     fun launchWith(fontScale: FontScale): ActivityScenario<out MockFontSizeActivity> {
