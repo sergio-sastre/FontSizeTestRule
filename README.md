@@ -30,14 +30,7 @@ allprojects {
 Add a dependency to `build.gradle`
 ```groovy
 dependencies {
-    androidTestImplementation 'com.github.sergio-sastre:FontSizeTestRule:v1.0.1'
-}
-```
-
-or if you want to try the `FontSizeActivityScenario` or use the `FontScaleTestRules` reliably on any API level:
-```groovy
-dependencies {
-    androidTestImplementation 'com.github.sergio-sastre:FontSizeTestRule:v1.1.0-SNAPSHOT'
+    androidTestImplementation 'com.github.sergio-sastre:FontSizeTestRule:v1.1.1'
 }
 ```
 
