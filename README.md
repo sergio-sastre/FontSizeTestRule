@@ -1,3 +1,7 @@
+<a href="https://androidweekly.net/issues/issue-485">
+<img src="https://androidweekly.net/issues/issue-485/badge">
+</a>
+
 # FontSizeActivityScenario and FontSizeTestRule
 An ActivityScenario and a Junit4 TestRule to be used together with its `org.junit.runners.Parameterized`. It simulates changing the font size on a device/emulator, as it would be done by going to "Settings > display > Font size"
 
@@ -62,7 +66,7 @@ If you are using `FontSizeActivityScenario` you need to add the following activi
 ```xml
 <application
         ...
-   <activity android:name="sergio.sastre.fontsize.activityScenario.SmallFontSizeActivity"></activity>
+   <activity android:name="sergio.sastre.fontsize.activityscenario.SmallFontSizeActivity"></activity>
    <activity android:name="sergio.sastre.fontsize.activityscenario.NormalFontSizeActivity"></activity>
    <activity android:name="sergio.sastre.fontsize.activityscenario.LargeFontSizeActivity"></activity>
    <activity android:name="sergio.sastre.fontsize.activityscenario.HugeFontSizeActivity"></activity>
