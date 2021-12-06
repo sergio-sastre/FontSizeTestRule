@@ -102,7 +102,7 @@ fun composeWithFontSizeTest() {
 ```
 
 You can find some test samples of `FontSizeActivityScenario` and `FontScaleTestRule` in the [Road to Effective Snapshot Testing](https://github.com/sergio-sastre/Road-To-Effective-Snapshot-Testing) repo:
-1. FontActivityScenario -> in the [DeleteDialogTest.kt](https://github.com/sergio-sastre/Road-To-Effective-Snapshot-Testing/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/deletedialog/DeleteDialogWithFontSizeActivityScenarioTest.kt) and [TrainingViewHolderTest.kt](https://github.com/sergio-sastre/Road-To-Effective-Snapshot-Testing/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/trainingitem/TrainingViewHolderTest.kt) files.
-2. FontScaleTestRule -> also in the [DeleteDialogTest.kt](https://github.com/sergio-sastre/Road-To-Effective-Snapshot-Testing/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/deletedialog/DeleteDialogWithFontSizeTestRuleTest.kt) file.
+1. FontActivityScenario -> in the [DeleteDialogWithFontSizeActivityScenarioTest.kt](https://github.com/sergio-sastre/Road-To-Effective-Snapshot-Testing/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/deletedialog/activityscenario/DeleteDialogWithFontSizeActivityScenarioTest.kt) and [TrainingViewHolderTest.kt](https://github.com/sergio-sastre/Road-To-Effective-Snapshot-Testing/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/trainingitem/TrainingViewHolderTest.kt) files.
+2. FontScaleTestRule -> also in the [DeleteDialogWithFontSizeTestRuleTest.kt](https://github.com/sergio-sastre/Road-To-Effective-Snapshot-Testing/blob/master/app/src/androidTest/java/com/example/road/to/effective/snapshot/testing/parameterized/deletedialog/testrule/DeleteDialogWithFontSizeTestRuleTest.kt) file.
 
 
